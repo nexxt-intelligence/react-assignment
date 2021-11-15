@@ -34,12 +34,12 @@ With this assignment we would evaluate the following:
 ## Assignment Details
 
 - This is a frontend React applications with no backend development required.
-- The idea is to build a single page with a stacked bar chart, displaying the number of photos (per album) for 6 users (the data is obtained from an API endpoint). Each user may have multiple albums, and each album may have multiple photos.
+- The idea is to build a single page with a stacked bar chart, displaying the number of photos (per album) for 6 users (the data is obtained from an API endpoint). Each user may have multiple albums, and each album may have multiple photos. Each bar therefore shows the total number of photos per user; and each stack within each bar corresponds to each album.
 - In addition to the bar chart, there are two controllable UIs:
-  - a simple sort control, which sorts the bars according to the alphabetical value of the user's email address (ascending or descending);
-  - a filter which lets you remove certain albums from consideration in the bar chart
-- UI should be fully responsive (mobile, tablet and desktop) and will be tested on Chrome browser
-- Implementation should use functional React component, and make use of the hooks API
+  - a simple sort control, which sorts the bars according to the alphabetical value of the user's email address (ascending or descending).
+  - a filter which lets you remove certain albums from consideration in the bar chart.
+- UI should be fully responsive (mobile, tablet and desktop) and will be tested on Chrome browser.
+- Implementation should use functional React component, and make use of the hooks API.
 
 #### API endpoint for users data
 @TODO
@@ -78,5 +78,9 @@ The schema of the data received in the response is:
 Upon opening the app a loading indicator is displayed until the data is fetched from the API and is ready to be displayed. The source code for the loading indicator can be obtained from: [http://tobiasahlin.com/spinkit/](http://tobiasahlin.com/spinkit/).
 
 #### Bar Chart & Controls
-@TODO
 
+You will follow these design specifications for this app: https://www.figma.com/file/qcovixXgzZ0smmUjZgJZRZ/Nexxt-React-Test
+
+For the bar chart, you will use the [@nivo/bar](https://nivo.rocks/bar) library.
+
+For the two controls (sort and filter), you will use the [react-select](https://react-select.com/) library.
