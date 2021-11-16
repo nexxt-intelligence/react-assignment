@@ -35,9 +35,7 @@ With this assignment we would evaluate the following:
 
 - This is a frontend React applications with no backend development required, bootstrapped using Create React App](https://facebook.github.io/create-react-app/)
 - The idea is to build a single page with a stacked bar chart, displaying the number of photos (per album) for 7 users (the data is obtained from an API endpoint). Each user may have multiple albums, and each album may have multiple photos. Each bar therefore shows the total number of photos per user; and each stack within each bar corresponds to each album.
-- In addition to the bar chart, there are two controllable UIs:
-  - a simple sort control, which sorts the bars according to the alphabetical value of the user's email address (ascending or descending).
-  - a filter which lets you remove certain albums from consideration in the bar chart.
+- The filter control lets you remove certain albums from consideration in the bar chart. It shows a list of all the albums (across all users), and if you select any of them, they will be filtered out of the bar chart.
 - UI should be fully responsive (mobile, tablet and desktop) and will be tested on Chrome browser.
 - Implementation should use functional React component, and make use of the hooks API.
 
@@ -124,17 +122,18 @@ Tip: make sure not to mix up the user, album, and photo ids!
 
 You will follow these design specifications for this app: https://www.figma.com/file/qcovixXgzZ0smmUjZgJZRZ/Nexxt-React-Test
 
-For the bar chart, you will use the [@nivo/bar](https://nivo.rocks/bar) library. Note that each bar corresponds to each user, and each stack within each bar corresponds to 1 album for that user. That means that different users may have a different number of stacks; and the number of stacks will be affected when you filter out certain albums. **Note that the colour for each stack (album) is meaningless - it is only used to distinguish the different albums for each user!**
+For the bar chart, you will use the [@nivo/bar](https://nivo.rocks/bar) library. Note that each bar corresponds to each user, and each stack within each bar corresponds to 1 album for that user. That means that different users may have a different number of stacks; and the number of stacks will be affected when you filter out certain albums. **Note that the colour for each stack (album) is meaningless - it is only used to distinguish the different albums for each user!** When you hover over any stack, it should show a tooltip (using the built-in nivo UI) which displays the name of the album, the user's email, and how many photos they have in that album.
 
-For the two controls (sort and filter), you will use the [react-select](https://react-select.com/) library. The sort control will simply use the email of each user, sorting them alphabetically (ascending or descending). The filter control will show a complete list of album titles for every user, using the `title` field from the album API. Selecting any of the albums should cause that data to be filtered out of the bar chart. For example, if user 1 has 6 albums, they would normally have 6 stacks in their bar. If one of their albums if filtered out, then their bar chart would only have 5 stacks.
+For the filter control, you will use the [react-select](https://react-select.com/) library. The filter control will show a complete list of album titles for every user, using the `title` field from the album API (tip: you may want to use ellipses to make the UI prettier). Selecting any of the albums should cause that data to be filtered out of the bar chart. For example, if user 1 has 6 albums, they would normally have 6 stacks in their bar. If one of their albums if filtered out, then their bar chart would only have 5 stacks.
 
 ## Time Estimate
-- Read documentation of `react-select`, `nivo/bar`, and this document: ~ 1 hour
+- Read documentation of `react-select`, `nivo/bar`, and this document: ~ ½ hour
 - Retrieving and processing data from the API: ~ ½ hour
 - Install and setup `nivo/bar` to display the data as specified: ~ 1 hour
-- Install and setup `react-select` for use as the sort and filter controls: ~ 1 hour
+- Install and setup `react-select` the filter control: ~ 1 hour
 - Layout, styling, and responsiveness: ~ ½ hour
-- Testing & Final Changes: ~ 30 minutes
+- Testing & Final Changes: ~ ½ hour
+- Total: ~ 4 hours
 
 ## Extra Credit
 - To make the experience complete, you can add a loading indicator to display while the data is being fetched from the API. You may want to use [http://tobiasahlin.com/spinkit/](http://tobiasahlin.com/spinkit/).
