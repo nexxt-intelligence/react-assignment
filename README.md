@@ -33,7 +33,7 @@ With this assignment we would evaluate the following:
 
 ## Assignment Details
 
-- This is a frontend React applications with no backend development required.
+- This is a frontend React applications with no backend development required, bootstrapped using Create React App](https://facebook.github.io/create-react-app/)
 - The idea is to build a single page with a stacked bar chart, displaying the number of photos (per album) for 7 users (the data is obtained from an API endpoint). Each user may have multiple albums, and each album may have multiple photos. Each bar therefore shows the total number of photos per user; and each stack within each bar corresponds to each album.
 - In addition to the bar chart, there are two controllable UIs:
   - a simple sort control, which sorts the bars according to the alphabetical value of the user's email address (ascending or descending).
@@ -138,10 +138,10 @@ You will follow these design specifications for this app: https://www.figma.com/
 
 For the bar chart, you will use the [@nivo/bar](https://nivo.rocks/bar) library.
 
-For the two controls (sort and filter), you will use the [react-select](https://react-select.com/) library.
+For the two controls (sort and filter), you will use the [react-select](https://react-select.com/) library. The sort control will simply use the email of each user, sorting them alphabetically (ascending or descending). The filter control will show a complete list of album titles for every user, using the `title` field from the album API. Selecting any of the albums should cause that data to be filtered out of the bar chart. For example, if user 1 has 6 albums, they would normally have 6 stacks in their bar. If one of their albums if filtered out, then their bar chart would only have 5 stacks.
 
 
 #### Bonus
-- To make the experience complete, you can add a loading indicator to display while the data is being fetched frmo the API. You may want to use [http://tobiasahlin.com/spinkit/](http://tobiasahlin.com/spinkit/).
+- To make the experience complete, you can add a loading indicator to display while the data is being fetched from the API. You may want to use [http://tobiasahlin.com/spinkit/](http://tobiasahlin.com/spinkit/).
 - If you are familiar with Typescript, you can use this as a chance to show off your typing knowledge!
 - What happens when the API fails? Consider adding a React error boundary to show an appropriate error message.
