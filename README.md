@@ -136,7 +136,7 @@ Tip: make sure not to mix up the user, album, and photo ids!
 
 You will follow these design specifications for this app: https://www.figma.com/file/qcovixXgzZ0smmUjZgJZRZ/Nexxt-React-Test
 
-For the bar chart, you will use the [@nivo/bar](https://nivo.rocks/bar) library.
+For the bar chart, you will use the [@nivo/bar](https://nivo.rocks/bar) library. Note that each bar corresponds to each user, and each stack within each bar corresponds to 1 album for that user. That means that different users may have a different number of stacks; and the number of stacks will be affected when you filter out certain albums. **Note that the colour for each stack (album) is meaningless - it is only used to distinguish the different albums for each user!**
 
 For the two controls (sort and filter), you will use the [react-select](https://react-select.com/) library. The sort control will simply use the email of each user, sorting them alphabetically (ascending or descending). The filter control will show a complete list of album titles for every user, using the `title` field from the album API. Selecting any of the albums should cause that data to be filtered out of the bar chart. For example, if user 1 has 6 albums, they would normally have 6 stacks in their bar. If one of their albums if filtered out, then their bar chart would only have 5 stacks.
 
