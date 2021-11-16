@@ -43,6 +43,7 @@ With this assignment we would evaluate the following:
 
 #### API endpoint for users data
 @TODO
+
 All 10 users profile data is to be downloaded from the following API endpoint:
 ```
 Method: GET
@@ -84,3 +85,9 @@ You will follow these design specifications for this app: https://www.figma.com/
 For the bar chart, you will use the [@nivo/bar](https://nivo.rocks/bar) library.
 
 For the two controls (sort and filter), you will use the [react-select](https://react-select.com/) library.
+
+
+#### Bonus
+
+- If you are familiar with Typescript, you can use this as a chance to show off your typing knowledge!
+- What happens when the API fails? Consider adding a React error boundary to show an appropriate error message.
