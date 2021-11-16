@@ -41,7 +41,7 @@ With this assignment we would evaluate the following:
 - UI should be fully responsive (mobile, tablet and desktop) and will be tested on Chrome browser.
 - Implementation should use functional React component, and make use of the hooks API.
 
-#### API endpoint for users data
+### API endpoint for users data
 
 You will use https://jsonplaceholder.typicode.com/ to retrieve user profile, album, and photo data. The API endpoints contain data for ten users, however for the purpose of this application you should randomly display seven of those users. Each time the page refreshes, the seven users should be randomly re-chosen.
 
@@ -120,7 +120,7 @@ For the purpose of this application, you will only need to count the number of p
 Tip: make sure not to mix up the user, album, and photo ids!
 
 
-#### Bar Chart & Controls
+### Bar Chart & Controls
 
 You will follow these design specifications for this app: https://www.figma.com/file/qcovixXgzZ0smmUjZgJZRZ/Nexxt-React-Test
 
@@ -128,8 +128,16 @@ For the bar chart, you will use the [@nivo/bar](https://nivo.rocks/bar) library.
 
 For the two controls (sort and filter), you will use the [react-select](https://react-select.com/) library. The sort control will simply use the email of each user, sorting them alphabetically (ascending or descending). The filter control will show a complete list of album titles for every user, using the `title` field from the album API. Selecting any of the albums should cause that data to be filtered out of the bar chart. For example, if user 1 has 6 albums, they would normally have 6 stacks in their bar. If one of their albums if filtered out, then their bar chart would only have 5 stacks.
 
+## Time Estimate
+- Read documentation of `react-select`, `nivo/bar`, and this document: ~ 1 hour
+- Retrieving and processing data from the API: ~ ½ hour
+- Install and setup `nivo/bar` to display the data as specified: ~ 1 hour
+- Install and setup `react-select` for use as the sort and filter controls: ~ 1 hour
+- Layout, styling, and responsiveness: ~ ½ hour
+- Testing & Final Changes: ~ 30 minutes
 
-#### Extra Credit
+## Extra Credit
 - To make the experience complete, you can add a loading indicator to display while the data is being fetched from the API. You may want to use [http://tobiasahlin.com/spinkit/](http://tobiasahlin.com/spinkit/).
 - If you are familiar with Typescript, you can use this as a chance to show off your typing knowledge!
 - What happens when the API fails? Consider adding a React error boundary to show an appropriate error message.
+- Wouldn't it be nice if people can see your application? Deploy it to Heroku, Netlify, or Vercel to show it off!
