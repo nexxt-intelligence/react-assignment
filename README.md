@@ -77,19 +77,13 @@ The schema of the data received in the response is:
 
 For the purpose of this application, we are only interested in the user's `email` and `id`.
 
-The `id` parameter can be matched with the albums list. You may use either of these endpoints to retrieve the album data:
+The `id` parameter can be matched with the albums list. You may use this endpoint to retrieve the album data:
 ```
 METHOD: GET
 URL: https://jsonplaceholder.typicode.com/albums
 ```
-to get album information for all users, OR
-```
-METHOD: GET
-URL: https://jsonplaceholder.typicode.com/users/${userId}/albums
-```
-where `${userId}` is replaced with each user's id.
 
-Either way, you schema of the data in the response is :
+The schema of the data in the response is:
 ```Javascript
 // Array of albums
 [
@@ -102,19 +96,13 @@ Either way, you schema of the data in the response is :
 ```
 You will use all three of the fields (`userId`, `id`, and `title`) in this application.
 
-To get the list of photos belonging to each album, you can use either of the following endpoints:
+To get the list of photos belonging to each album, you can use use the following endpoint:
 ```
 METHOD: GET
 URL: https://jsonplaceholder.typicode.com/photos
 ```
-to get photos for all albums, OR
-```
-METHOD: GET
-URL: https://jsonplaceholder.typicode.com/albums/${albumId}/photos
-```
-where `${albumId}` is replaced with each album's id.
 
-Either way, you schema of the data in the response is :
+The schema of the data in the response is:
 ```Javascript
 // Array of photos
 [
@@ -141,7 +129,7 @@ For the bar chart, you will use the [@nivo/bar](https://nivo.rocks/bar) library.
 For the two controls (sort and filter), you will use the [react-select](https://react-select.com/) library. The sort control will simply use the email of each user, sorting them alphabetically (ascending or descending). The filter control will show a complete list of album titles for every user, using the `title` field from the album API. Selecting any of the albums should cause that data to be filtered out of the bar chart. For example, if user 1 has 6 albums, they would normally have 6 stacks in their bar. If one of their albums if filtered out, then their bar chart would only have 5 stacks.
 
 
-#### Bonus
+#### Extra Credit
 - To make the experience complete, you can add a loading indicator to display while the data is being fetched from the API. You may want to use [http://tobiasahlin.com/spinkit/](http://tobiasahlin.com/spinkit/).
 - If you are familiar with Typescript, you can use this as a chance to show off your typing knowledge!
 - What happens when the API fails? Consider adding a React error boundary to show an appropriate error message.
