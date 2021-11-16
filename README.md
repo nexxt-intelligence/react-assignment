@@ -34,7 +34,7 @@ With this assignment we would evaluate the following:
 ## Assignment Details
 
 - This is a frontend React applications with no backend development required.
-- The idea is to build a single page with a stacked bar chart, displaying the number of photos (per album) for 6 users (the data is obtained from an API endpoint). Each user may have multiple albums, and each album may have multiple photos. Each bar therefore shows the total number of photos per user; and each stack within each bar corresponds to each album.
+- The idea is to build a single page with a stacked bar chart, displaying the number of photos (per album) for 7 users (the data is obtained from an API endpoint). Each user may have multiple albums, and each album may have multiple photos. Each bar therefore shows the total number of photos per user; and each stack within each bar corresponds to each album.
 - In addition to the bar chart, there are two controllable UIs:
   - a simple sort control, which sorts the bars according to the alphabetical value of the user's email address (ascending or descending).
   - a filter which lets you remove certain albums from consideration in the bar chart.
@@ -42,9 +42,10 @@ With this assignment we would evaluate the following:
 - Implementation should use functional React component, and make use of the hooks API.
 
 #### API endpoint for users data
-@TODO
 
-All 10 users profile data is to be downloaded from the following API endpoint:
+You will use https://jsonplaceholder.typicode.com/ to retrieve user profile, album, and photo data. The API endpoints contain data for ten users, however for the purpose of this application you should randomly display seven of those users. Each time the page refreshes, the seven users should be randomly re-chosen.
+
+The following API endpoint will retrieve the data that you need for the user profiles:
 ```
 Method: GET
 URL: https://jsonplaceholder.typicode.com/users
@@ -74,9 +75,62 @@ The schema of the data received in the response is:
 ]
 ```
 
-#### Loading Indicator
+For the purpose of this application, we are only interested in the user's `email` and `id`.
 
-Upon opening the app a loading indicator is displayed until the data is fetched from the API and is ready to be displayed. The source code for the loading indicator can be obtained from: [http://tobiasahlin.com/spinkit/](http://tobiasahlin.com/spinkit/).
+The `id` parameter can be matched with the albums list. You may use either of these endpoints to retrieve the album data:
+```
+METHOD: GET
+URL: https://jsonplaceholder.typicode.com/albums
+```
+to get album information for all users, OR
+```
+METHOD: GET
+URL: https://jsonplaceholder.typicode.com/users/${userId}/albums
+```
+where `${userId}` is replaced with each user's id.
+
+Either way, you schema of the data in the response is :
+```Javascript
+// Array of albums
+[
+  {
+    userId,	// The user's id, matched to the previous API
+    id, // album id
+    title
+  }
+]
+```
+You will use all three of the fields (`userId`, `id`, and `title`) in this application.
+
+To get the list of photos belonging to each album, you can use either of the following endpoints:
+```
+METHOD: GET
+URL: https://jsonplaceholder.typicode.com/photos
+```
+to get photos for all albums, OR
+```
+METHOD: GET
+URL: https://jsonplaceholder.typicode.com/albums/${albumId}/photos
+```
+where `${albumId}` is replaced with each album's id.
+
+Either way, you schema of the data in the response is :
+```Javascript
+// Array of photos
+[
+  {
+    albumId,	// The album's id, matched to the previous API
+    id, // photo id
+    title,
+    url,
+    thumbnailUrl
+  }
+]
+```
+For the purpose of this application, you will only need to count the number of photos per album: the `title`, `url`, and `thumbnailUrl` fields can be discarded.
+
+Tip: make sure not to mix up the user, album, and photo ids!
+
 
 #### Bar Chart & Controls
 
@@ -88,6 +142,6 @@ For the two controls (sort and filter), you will use the [react-select](https://
 
 
 #### Bonus
-
+- To make the experience complete, you can add a loading indicator to display while the data is being fetched frmo the API. You may want to use [http://tobiasahlin.com/spinkit/](http://tobiasahlin.com/spinkit/).
 - If you are familiar with Typescript, you can use this as a chance to show off your typing knowledge!
 - What happens when the API fails? Consider adding a React error boundary to show an appropriate error message.
